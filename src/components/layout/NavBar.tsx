@@ -1,21 +1,51 @@
 import React from 'react'
 import { CgProfile } from "react-icons/cg";
-import { useNavigate } from 'react-router-dom';
 import "../../styles/NavBar.css";
-
+import { useState, useRef, useEffect } from 'react';
+import { NavLink  } from 'react-router-dom';
 
 function NavBar() {
 
-  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const profileRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        profileRef.current &&
+        !profileRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    }
+    
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className='navbar'>
       <div className='logo'>HIGHKING</div>
-      <button className='profile-button'
-        onClick={() => navigate("/profil")}
-        >
+      <div className='profile-container' ref={profileRef}>
+        <button className='profile-button' onClick={() => setIsOpen(!isOpen)}>
           <CgProfile />
-      </button>
+        </button>
+          {isOpen && (
+          <div className="profile-dropdown">
+            <NavLink to="/profil" className="dropdown-item" onClick={() => setIsOpen(false)}>
+              Profil
+            </NavLink>
+            <NavLink to="/login" className="dropdown-item" onClick={() => setIsOpen(false)}>
+              Prijava
+            </NavLink>
+          </div>
+          )}
+      
+      </div>
+      
     </div>
   )
 }

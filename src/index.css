@@ -5,7 +5,7 @@
   --text: 'Monserrat', sans-serif;
   --background-body: #EDE4AE;
   --red: rgba(#CE4F32,0.7);
-  --black: rgb(#000000);
+  --black: rgb(#252525);
   --sidebar-width: 240px;
   --navbar-height: 60px;
   @media (max-width: 1024px) {
