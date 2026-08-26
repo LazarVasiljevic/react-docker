@@ -1,0 +1,25 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--background);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: var(--navbar-height);
+}
+.logo{
+    font-family: var(--text);
+    font-size: 2.0rem;
+    font-weight: bold;
+    color: var(--text-color);
+    padding: 15px 15px;
+}
+.profile-button{
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2.3rem;
+    cursor: pointer;
+    padding: 15px 15px;
+}

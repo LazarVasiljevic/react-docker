@@ -1,0 +1,26 @@
+.activity-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.activity-card:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+.activity-card-image{
+    width: 280px;
+    height: 420px;
+}
+.activity-card-content{
+    font-family: var(--text);
+    font-size: 20px;
+    background-color: var(--text-color);
+    width: 280px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

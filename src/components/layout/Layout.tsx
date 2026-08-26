@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from './NavBar'
 import Sidebar from './Sidebar'
 import { Outlet } from 'react-router-dom'
+import "../../styles/Layout.css";
 
 function Layout() {
   return (

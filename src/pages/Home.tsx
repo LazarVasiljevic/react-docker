@@ -1,8 +1,9 @@
 import React from 'react'
 import ActivityCard from '../components/ActivityCard';
+import '../styles/Home.css';
 function Home() {
   return (
-    <div className="flex justify-center gap-20 pt-20">
+    <div className="home-container">
         <ActivityCard
             title="Staze za šetnju"
             image="/images/setnja.png"
@@ -10,7 +11,7 @@ function Home() {
         />
 
         <ActivityCard
-              title="Staze biciklizam"
+              title="Staze za biciklizam"
               image="/images/biciklizam.png"
               link="/biciklizam"
             />
