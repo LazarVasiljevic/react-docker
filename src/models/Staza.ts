@@ -1,15 +1,20 @@
 export type Difficulty = 'lako' | 'srednje' | 'tesko';
 export type TrailType = 'loop' | 'point-to-point';
 export type TrailKind = 'setnja' | 'biciklizam';
+export type Location = 'Beljanica' | 'Tara' | 'Jastebac' | 'Stara planina' | 'Divčibare' | 'Valjevo' | 'Beograd'
+    | 'Goč' | 'Kopaonik' | 'Fruška gora' | 'Besna kobila';
 
+
+    
 export class Trail {
     public id: string;
     public name: string;
-    public location: string;
+    public location: Location;
     public typeK: TrailKind;
     public difficulty: Difficulty;
-    public distance: number;
     public duration: number;
+    public distance: number;
+    public elevation: number;
     public description: string;
     public image: string;
     public tipStaze: TrailType;
@@ -17,11 +22,12 @@ export class Trail {
     constructor(
         id: string,
         name: string,
-        location: string,
+        location: Location,
         typeK: TrailKind,
         difficulty: Difficulty,
-        distance: number,
         duration: number,
+        distance: number,
+        elevation: number,
         description: string,
         image: string,
         tipStaze: TrailType
@@ -31,8 +37,9 @@ export class Trail {
         this.location = location;
         this.typeK = typeK;
         this.difficulty = difficulty;
-        this.distance = distance;
         this.duration = duration;
+        this.distance = distance;
+        this.elevation = elevation;
         this.description = description;
         this.image = image;
         this.tipStaze = tipStaze;

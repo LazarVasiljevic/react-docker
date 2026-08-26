@@ -6,8 +6,8 @@ function NavBar() {
   const navigate = useNavigate();
 
   return (
-    <header className='navbar'>
-      <div className='logo'>HIGHKING</div>
+    <header className='bg-emerald-800 text-emerald-50 shadow-md'>
+      <div className='font-bold text-lg tracking-wide'>HIGHKING</div>
       <button className='profile-button'
         onClick={() => navigate("/profil")}
         >
