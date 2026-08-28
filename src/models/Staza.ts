@@ -7,12 +7,12 @@ export type Location = 'Beljanica' | 'Tara' | 'Jastebac' | 'Stara planina' | 'Di
 
     
 export class Trail {
-    public id: string;
+    public id: number;
     public name: string;
     public location: Location;
     public typeK: TrailKind;
     public difficulty: Difficulty;
-    public duration: number;
+    public duration: string;
     public distance: number;
     public elevation: number;
     public description: string;
@@ -20,12 +20,12 @@ export class Trail {
     public tipStaze: TrailType;
 
     constructor(
-        id: string,
+        id: number,
         name: string,
         location: Location,
         typeK: TrailKind,
         difficulty: Difficulty,
-        duration: number,
+        duration: string,
         distance: number,
         elevation: number,
         description: string,
