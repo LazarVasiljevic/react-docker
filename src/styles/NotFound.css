@@ -1,0 +1,16 @@
+.not-found{
+    font-family: var(--text);
+    margin-top:50px;
+    font-size: 24px;
+}
+.not-found-icon{
+    width:50px;
+    height:50px;
+}
+
+.not-found-item{
+    margin-top:30px;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--background);
+}

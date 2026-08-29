@@ -7,6 +7,7 @@ import Vreme from './pages/Vreme'
 import Profil from './pages/Profil'
 import Login from './pages/Login'
 import Signin from './pages/Signin'
+import NotFound from './pages/NotFound'
 import {
   Routes,
   Route,
@@ -34,7 +35,7 @@ function App() {
 
             <Route path='/login' element={<Login />}/>
             <Route path='/signin' element={<Signin />}/>
-
+            <Route path='*' element={<NotFound />} />
         </Routes>
     </BrowserRouter>
     
