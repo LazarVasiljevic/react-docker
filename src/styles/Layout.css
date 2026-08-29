@@ -3,6 +3,6 @@
 }
 .main-content{
     margin-top: var(--navbar-height);
-    margin-left: var(--sidebar-width);
+    margin-left: 0;
     padding: 40px;
 }

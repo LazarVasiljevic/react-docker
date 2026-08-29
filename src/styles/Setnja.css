@@ -1,0 +1,24 @@
+.walking-trails {
+    margin-top: -20px;
+}
+
+.walking-trails h1{
+    padding-left: 150px;
+    font-family: var(--text);
+    color: var(--black);
+    padding-bottom: 50px;
+}
+.trails-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.trails-header{
+    padding-left:350px;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

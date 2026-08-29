@@ -15,7 +15,7 @@ function StazaCard({ staza }: StazaCardProps) {
     const navigate = useNavigate();
 
     function handleClick() {
-        navigate(`/staze/${staza.id}`);
+        navigate(`/staza/${staza.id}`);
     }
 
   return (
@@ -27,7 +27,7 @@ function StazaCard({ staza }: StazaCardProps) {
                 alt={staza.name}
             />
             <div className="trail-info">
-                <h2>{staza.name}</h2>
+                <h3>{staza.name}</h3>
                 <p>{staza.location}</p>
             </div>
             

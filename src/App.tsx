@@ -12,6 +12,7 @@ import {
   Route,
   BrowserRouter
 } from"react-router-dom";
+import StazaDetalji from './pages/StazaDetalji'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
               <Route path="/" element={<Home />}/>
               <Route path="/setnja" element={<Setnja />} />
               <Route path="/biciklizam" element={<Biciklizam />} />
+              <Route path="/staza/:id" element={<StazaDetalji />} />
               <Route path="/galerija" element={<Galerija />} />
               <Route path="/vreme" element={<Vreme />} />
               <Route path='/profil' element={<Profil />}/>
