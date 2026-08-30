@@ -38,7 +38,7 @@ function Login() {
 
                       <img
                           src={login}
-                          alt="Planinski pejzaž"
+                          alt="Login slika"
                       />
 
                     </div>

@@ -1,0 +1,150 @@
+.signin-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--text);
+}
+
+
+.signin-container {
+    width: 1050px;
+    max-width: 90%;
+    display: flex;
+    height: 590px;
+    box-shadow: 7px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.signin-image {
+    width: 50%;
+}
+
+.signin-image img {
+    width: 100%;
+    height:100%;
+    display: block;
+    object-fit: cover;
+}
+
+.signin-form-container {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 65px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, #FADA3D 0%, #FFD689 100%);
+
+}
+
+.signin-form-container h1 {
+    margin: 0 0 50px;
+    font-size: 38px;
+    color: #222;
+}
+
+.signin-form-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+
+.signin-form-container input {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0 30px;
+    border: none;
+    border-radius: 12px;
+    background-color: #f3dea2;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 16px;
+    outline: none;
+}
+
+.signin-form-container input:focus {
+    box-shadow: 0 0 0 2px #e6784d;
+}
+
+.signin-button {
+    width: 80%;
+    height: 34px;
+    align-self: center;
+    margin-top: 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #e6784d;
+    color: #222;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.signin-button:hover {
+    background-color: #d9663c;
+}
+
+@media (max-width: 768px) {
+
+    .signin-page {
+        padding-top: 30px;
+    }
+
+
+    .signin-container {
+        width: 95%;
+        max-width: 500px;
+
+        flex-direction: column;
+    }
+
+
+    .signin-image {
+        width: 100%;
+    }
+
+
+    .signin-image img {
+        height: 250px;
+    }
+
+
+    .signin-form-container {
+        width: 100%;
+        height: auto;
+
+        padding: 40px 30px 50px;
+    }
+
+
+    .signin-form-container h1 {
+        font-size: 30px;
+
+        margin-bottom: 35px;
+    }
+
+
+    .signin-form-container form {
+        gap: 20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .signin-image img {
+        height: 200px;
+    }
+
+    .signin-form-container {
+        padding: 30px 20px 40px;
+    }
+
+    .signin-button {
+        width: 100%;
+    }
+
+}
