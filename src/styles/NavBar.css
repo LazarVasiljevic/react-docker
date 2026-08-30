@@ -7,7 +7,6 @@
     display: flex;
     justify-content: space-between;
     height: var(--navbar-height);
-    z-index: 1000;
 }
 .logo{
     font-family: var(--text);

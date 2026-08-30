@@ -57,7 +57,8 @@
 .view-image {
     max-width: 80vw;
     max-height: 85vh;
-
+    min-width: 30vw;
+    min-height: 35vh;
     object-fit: contain;
 
     border-radius: 10px;

@@ -33,6 +33,7 @@ function NavBar() {
         <button className='profile-button' onClick={() => setIsOpen(!isOpen)}>
           <CgProfile />
         </button>
+
           {isOpen && (
           <div className="profile-dropdown">
             <NavLink to="/profil" className="dropdown-item" onClick={() => setIsOpen(false)}>
@@ -43,6 +44,7 @@ function NavBar() {
             </NavLink>
           </div>
           )}
+          
       </div>
     </div>
   )
