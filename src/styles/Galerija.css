@@ -1,0 +1,200 @@
+.gallery {
+    width:70vw;
+    columns: 3 300px;
+    column-gap: 20px;
+}
+
+.gallery-image {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 14px;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.gallery-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.gallery-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-image img {
+    transition: transform 0.4s ease;
+}
+
+.view {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.75);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 9999;
+}
+
+.view-image {
+    max-width: 80vw;
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.view-close {
+    position: absolute;
+
+    top: 25px;
+    right: 35px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: var(--background);
+
+    font-size: 32px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition: transform 0.2s ease;
+}
+
+.view-close:hover {
+    transform: scale(1.1);
+}
+
+.view-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: var(--background);
+
+    font-size: 40px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.view-arrow:hover {
+    background-color: var(--background-hover);
+}
+
+.view-arrow-left {
+    left: 30px;
+}
+
+.view-arrow-right {
+    right: 30px;
+}
+
+@media (max-width: 768px) {
+
+    .gallery {
+        columns: 2 180px;
+
+        column-gap: 12px;
+
+        padding: 15px;
+    }
+
+
+    .gallery-image {
+        margin-bottom: 12px;
+    }
+
+
+    .view-image {
+        max-width: 90vw;
+        max-height: 80vh;
+    }
+
+
+    .view-arrow {
+        width: 40px;
+        height: 40px;
+
+        font-size: 30px;
+    }
+
+
+    .view-arrow-left {
+        left: 10px;
+    }
+
+
+    .view-arrow-right {
+        right: 10px;
+    }
+
+
+    .view-close {
+        top: 15px;
+        right: 15px;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 28px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .gallery {
+        columns: 1;
+    }
+
+}
