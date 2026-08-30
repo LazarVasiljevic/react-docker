@@ -24,9 +24,7 @@ interface FavoritesProviderProps {
     children: React.ReactNode;
 }
 
-export function FavoritesProvider({
-    children
-}: FavoritesProviderProps) {
+export function FavoritesProvider({children}: FavoritesProviderProps) {
 
     const [user, setUser] = useState<User | null>(null);
 
@@ -50,7 +48,7 @@ export function FavoritesProvider({
 
         const userData = JSON.parse(storedUser);
 
-
+        console.log("Ulogovani---",userData)
         const loggedUser = new User(
             userData.ime,
             userData.prezime,

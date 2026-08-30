@@ -1,0 +1,59 @@
+.profile{
+    margin-left:-30px;
+    width: 70vw;
+    font-family: var(--text);
+    padding-top: 20px;
+}
+
+.profile-content{
+    display: flex;
+    flex-direction: row;
+    gap:30px;
+}
+.profile-left{
+    display: flex;
+    flex-direction: column;
+    width:25%;
+    font-size: 24px;
+}
+.profile-right{
+    display: flex;
+    flex-direction: column;
+    width:75%;
+    gap:40px;
+}
+.profile-icon{
+    width:180px;
+    height:180px;
+}
+.profile-email{
+    text-align: left;
+    font-size: 24px;
+    
+}
+.profile-omiljene{
+    text-align: left;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+.profile-email-text{
+    padding-left:10px;
+}
+
+.profile-omiljene-text{
+    padding-left:10px;
+}
+.profile-email-icon{
+    scale: 1.5;
+}
+.profile-icon-heart{
+    scale: 1.5;
+    color:red;
+}
+.profile-omiljene-card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+}

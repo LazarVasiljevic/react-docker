@@ -52,13 +52,15 @@ function StazaDetalji() {
     };
   return (
     <div className="trail-details">
+            <div className='trail-header'>
+                
+                <div className='trail-header-name'>
+                    <h1>{trail.name}</h1>
 
-            <img
-                src={trail.image}
-                alt={trail.name}
-                className="trail-details-image"
-            />
-            <button
+                    <h2> {trail.location}</h2> 
+                </div>
+
+                <button
                 className={`trail-details-favorite ${
                     favorite
                         ? "trail-details-favorite-active"
@@ -75,14 +77,20 @@ function StazaDetalji() {
                     <CiHeart />
 
                 </button>
-            <div className="trail-details-content">
-            
-                <h1>{trail.name}</h1>
-
+            </div>
+        <div className='trail-content'>
+            <div className='trail-content-left'>
+                <img
+                    src={trail.image}
+                    alt={trail.name}
+                    className="trail-details-image"
+                />
                 <p>
-                    Lokacija: {trail.location}
+                    {trail.description}
                 </p>
+            </div>
 
+            <div className="trail-content-right">
                 <p>
                     Težina: {trail.difficulty}
                 </p>
@@ -92,28 +100,15 @@ function StazaDetalji() {
                 </p>
 
                 <p>
-                    Trajanje: {trail.duration} min
+                    Trajanje: {trail.duration}
                 </p>
+            </div>    
 
-                <p>
-                    {trail.description}
-                </p>
-
-                <button
-                    className="favorite-trail-button"
-                    onClick={handleFavoriteClick}
-                >
-
-                    <CiHeart />
-
-                    {favorite
-                        ? "Ukloni iz omiljenih"
-                        : "Dodaj u omiljene"
-                    }
-
-                </button>
                 
-            </div>
+        </div>
+                
+
+            
 
         </div>
   )

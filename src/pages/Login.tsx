@@ -11,6 +11,7 @@ function Login() {
 
     const navigate = useNavigate();
 
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -37,7 +38,7 @@ function Login() {
 
         const userData = JSON.parse(storedUser);
 
-
+        console.log("User:----",userData)
 
         const user = new User(
             userData.name,
@@ -47,6 +48,7 @@ function Login() {
             []
         );
 
+        console.log("User:----posle",user)
 
 
         if (user.email !== email) {
@@ -127,7 +129,7 @@ function Login() {
                               }
                               required
                           />
-                          
+                         
                         {error && (
                             <p className="login-error">
                                 {error}
