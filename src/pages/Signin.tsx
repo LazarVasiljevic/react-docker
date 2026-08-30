@@ -4,6 +4,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/Signin.css';
 import NavBar from '../components/layout/NavBar';
+import {User} from '../models/User';
+
+
+
 function Signin() {
   const navigate = useNavigate();
 
@@ -11,7 +15,9 @@ function Signin() {
   const [prezime, setPrezime] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [error, setError] = useState("");
+
+
   const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
 
@@ -21,6 +27,40 @@ function Signin() {
             email,
             password
       });
+      setError("");
+
+      const existingUser = localStorage.getItem("user");
+
+        if (existingUser) {
+
+            const userData = JSON.parse(existingUser);
+
+            if (userData.email === email) {
+
+                setError(
+                    "Korisnik sa ovim e-mailom već postoji."
+                );
+
+                return;
+            }
+        }
+
+
+        const user = new User(
+            ime,
+            prezime,
+            email,
+            password,
+            []
+        );
+
+
+        localStorage.setItem(
+            "user",
+            JSON.stringify(user)
+        );
+
+
 
       navigate("/login");
     };
@@ -87,7 +127,12 @@ function Signin() {
                   }
                   required
               />
-
+              
+              {error && (
+                  <p className="signin-error">
+                      {error}
+                  </p>
+              )}
 
               <button
                   type="submit"

@@ -5,21 +5,77 @@ import { Link } from 'react-router-dom';
 import login from '../../public/images/login.png';
 import NavBar from '../components/layout/NavBar';
 import '../styles/Login.css'
+import {User} from '../models/User'
 
 function Login() {
-  const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
+    const handleSubmit = (e: React.FormEvent) => {
 
         e.preventDefault();
-
+        setError("");
         console.log("Email:", email);
         console.log("Password:", password);
 
-        // Za sada samo demonstracija prijave
+        const storedUser = localStorage.getItem("user");
+
+        if (!storedUser) {
+
+            setError(
+                "Korisnik ne postoji. Prvo se registrujte."
+            );
+
+            return;
+        }
+
+
+
+        const userData = JSON.parse(storedUser);
+
+
+
+        const user = new User(
+            userData.ime,
+            userData.prezime,
+            userData.email,
+            userData.password,
+            []
+        );
+
+
+
+        if (user.email !== email) {
+
+            setError(
+                "Pogrešan e-mail ili password."
+            );
+
+            return;
+        }
+
+
+
+        if (!user.checkPassword(password)) {
+
+            setError(
+                "Pogrešan e-mail ili password."
+            );
+
+            return;
+        }
+
+
+
+        localStorage.setItem(
+            "loggedUser",
+            JSON.stringify(user)
+        );
+
         navigate("/");
 
     };
@@ -32,7 +88,6 @@ function Login() {
 
               <div className="login-container">
 
-                  {/* LEVA STRANA */}
 
                   <div className="login-image">
 
@@ -44,7 +99,6 @@ function Login() {
                     </div>
 
 
-                  {/* DESNA STRANA */}
 
                   <div className="login-form-container">
 
@@ -73,7 +127,12 @@ function Login() {
                               }
                               required
                           />
-
+                          
+                        {error && (
+                            <p className="login-error">
+                                {error}
+                            </p>
+                        )}
 
                           <button
                               type="submit"

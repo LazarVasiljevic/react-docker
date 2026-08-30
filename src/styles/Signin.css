@@ -148,3 +148,13 @@
     }
 
 }
+
+.signin-error {
+    margin: -15px 0 0;
+
+    color: #c0392b;
+
+    font-size: 13px;
+
+    text-align: center;
+}

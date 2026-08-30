@@ -34,4 +34,12 @@ export class User {
     hasFavorite(trailId: number): boolean {
         return this.favorites.includes(trailId);
     }
+
+    getFullName(): string{
+        return `${this.name} ${this.surname}`; 
+    }
+    
+    checkPassword(password: string): boolean {
+        return this.password === password;
+    }
 }
