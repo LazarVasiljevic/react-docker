@@ -1,7 +1,7 @@
 export type Difficulty = 'laka' | 'srednje' | 'teška';
-export type TrailType = 'loop' | 'point-to-point';
+export type TrailType = 'kružna' | 'od tačke do tačke';
 export type TrailKind = 'setnja' | 'biciklizam';
-export type Location = 'Beljanica' | 'Tara' | 'Jastebac' | 'Stara planina' | 'Divčibare' | 'Valjevo' | 'Beograd'
+export type Location = 'Beljanica' | 'Tara' | 'Jastrebac' | 'Stara planina' | 'Divčibare' | 'Valjevo' | 'Beograd'
     | 'Goč' | 'Kopaonik' | 'Fruška gora' | 'Besna kobila';
 
 

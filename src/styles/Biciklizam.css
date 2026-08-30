@@ -3,14 +3,14 @@
 }
 
 .cycling-trails h1{
-    padding-left:200px;
+    padding-left:250px;
     font-family: var(--text);
     color: var(--black);
     padding-bottom: 50px;
 }
 .trails-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 30px;
 }

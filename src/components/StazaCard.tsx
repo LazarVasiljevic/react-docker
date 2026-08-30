@@ -4,6 +4,7 @@ import { Trail } from '../models/Staza';
 import { RxLapTimer } from "react-icons/rx";
 import { RiTreasureMapLine } from "react-icons/ri";
 import { MdHeight } from "react-icons/md";
+import { GiPathDistance } from "react-icons/gi";
 import '../styles/StazaCard.css';
 
 interface StazaCardProps{
@@ -39,7 +40,7 @@ function StazaCard({ staza }: StazaCardProps) {
                 <span className="duration"> {staza.duration}</span>
             </div>
             <div className="info-item">
-                <RiTreasureMapLine />
+                <GiPathDistance />
                 <span className="distance"> {staza.distance}km</span>
             </div>
             <div className="info-item">

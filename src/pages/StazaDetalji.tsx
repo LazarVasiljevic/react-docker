@@ -4,6 +4,13 @@ import {staze } from '../data/staze';
 import { CiHeart } from "react-icons/ci";
 import '../styles/StazaDetalji.css';
 import {useFavorites} from '../context/FavoritesContext';
+import { RxLapTimer } from "react-icons/rx";
+import { GiPathDistance } from "react-icons/gi";
+import { RiTreasureMapLine } from "react-icons/ri";
+import { MdHeight } from "react-icons/md";
+import { GiHiking } from "react-icons/gi";
+import { GiTrail } from "react-icons/gi";
+
 
 
 function StazaDetalji() {
@@ -91,17 +98,24 @@ function StazaDetalji() {
             </div>
 
             <div className="trail-content-right">
-                <p>
-                    Težina: {trail.difficulty}
-                </p>
+                <div className='trail-content-item'>
+                    <GiHiking />
+                    <span>Težina: {trail.difficulty}</span>
+                </div>
 
-                <p>
-                    Dužina: {trail.distance} km
-                </p>
+                <div className='trail-content-item'>
+                    <RiTreasureMapLine/>
+                    <span>Dužina: {trail.distance} km</span>
+                </div>
 
-                <p>
-                    Trajanje: {trail.duration}
-                </p>
+                <div className='trail-content-item'>
+                    <RxLapTimer/>
+                    <span>Trajanje: {trail.duration}</span>
+                </div>
+                <div className='trail-content-item'>
+                    <GiTrail/>
+                    <span>Tip staze: {trail.tipStaze}</span>
+                </div>
             </div>    
 
                 

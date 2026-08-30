@@ -13,8 +13,7 @@ function ActivityCard({ title, image, link }: ActivityCardProps) {
     const navigate = useNavigate();
   
     return (
-        <div onClick={() => navigate(link)}
-        className='activity-card'>
+        <div onClick={() => navigate(link)} className='activity-card'>
             <img
                 src={image}
                 alt={title}
