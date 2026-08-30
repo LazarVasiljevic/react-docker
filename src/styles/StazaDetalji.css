@@ -1,0 +1,133 @@
+.trail-details {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 40px auto;
+}
+
+
+
+.trail-details-image-container {
+    position: relative;
+
+    width: 100%;
+    height: 450px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+}
+
+
+.trail-details-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+
+.trail-details-favorite {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.9);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.trail-details-favorite svg {
+    width: 32px;
+    height: 32px;
+}
+
+
+.trail-details-favorite:hover {
+    transform: scale(1.1);
+
+    background-color: white;
+}
+
+
+.trail-details-favorite-active {
+    background-color: #ffe0df;
+}
+
+
+.trail-details-favorite-active svg {
+    fill: #e74c3c;
+
+    color: #e74c3c;
+}
+
+
+
+.trail-details-content {
+    padding: 30px 10px;
+}
+
+
+.trail-details-content h1 {
+    margin-bottom: 20px;
+
+    font-size: 32px;
+}
+
+
+.trail-details-content p {
+    margin: 10px 0;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+
+.favorite-trail-button {
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #222;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+.favorite-trail-button svg {
+    width: 22px;
+    height: 22px;
+}

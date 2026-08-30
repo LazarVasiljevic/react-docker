@@ -34,6 +34,7 @@
     flex-direction: column;
     width: 150px;
     background-color: var(--background);
+    z-index: 2000;
 }
 .dropdown-item{
     text-decoration: none;
@@ -41,7 +42,9 @@
     height: 20px;
     padding: 10px 15px;
     font-size:18px;
-    font-family: var(--text)
+    font-family: var(--text);
+    z-index: 2000;
+
 }
 
 .dropdown-item:hover {

@@ -1,8 +1,10 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import {staze } from '../data/staze';
-
+import { CiHeart } from "react-icons/ci";
 import '../styles/StazaDetalji.css';
+import {useFavorites} from '../context/FavoritesContext';
+
 
 function StazaDetalji() {
     const { id } = useParams();
@@ -14,8 +16,15 @@ function StazaDetalji() {
         trail => trail.id === Number(id)
     );
 
-    console.log("Pronađena staza:", trail);
     
+    console.log("Pronađena staza:", trail);
+
+    const {
+        addFavorite,
+        removeFavorite,
+        hasFavorite
+    } = useFavorites();
+
     if (!trail) {
         return (
             <div>
@@ -24,7 +33,23 @@ function StazaDetalji() {
         );
     }
 
+    const favorite =
+        hasFavorite(trail.id);
 
+
+    const handleFavoriteClick = () => {
+
+        if (favorite) {
+
+            removeFavorite(trail.id);
+
+        } else {
+
+            addFavorite(trail.id);
+
+        }
+
+    };
   return (
     <div className="trail-details">
 
@@ -33,9 +58,25 @@ function StazaDetalji() {
                 alt={trail.name}
                 className="trail-details-image"
             />
+            <button
+                className={`trail-details-favorite ${
+                    favorite
+                        ? "trail-details-favorite-active"
+                        : ""
+                }`}
+                onClick={handleFavoriteClick}
+                aria-label={
+                    favorite
+                        ? "Ukloni iz omiljenih"
+                        : "Dodaj u omiljene"
+                }
+            >
 
+                    <CiHeart />
+
+                </button>
             <div className="trail-details-content">
-
+            
                 <h1>{trail.name}</h1>
 
                 <p>
@@ -58,6 +99,20 @@ function StazaDetalji() {
                     {trail.description}
                 </p>
 
+                <button
+                    className="favorite-trail-button"
+                    onClick={handleFavoriteClick}
+                >
+
+                    <CiHeart />
+
+                    {favorite
+                        ? "Ukloni iz omiljenih"
+                        : "Dodaj u omiljene"
+                    }
+
+                </button>
+                
             </div>
 
         </div>

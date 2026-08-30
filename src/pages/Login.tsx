@@ -40,8 +40,8 @@ function Login() {
 
 
         const user = new User(
-            userData.ime,
-            userData.prezime,
+            userData.name,
+            userData.surname,
             userData.email,
             userData.password,
             []
