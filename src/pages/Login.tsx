@@ -11,10 +11,12 @@ function Login() {
 
     const navigate = useNavigate();
 
-    
+    const [ime, setIme] = useState("");
+    const [prezime, setPrezime] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    
 
     const handleSubmit = (e: React.FormEvent) => {
 
@@ -34,8 +36,6 @@ function Login() {
             return;
         }
 
-
-
         const userData = JSON.parse(storedUser);
 
         console.log("User:----",userData)
@@ -45,11 +45,13 @@ function Login() {
             userData.surname,
             userData.email,
             userData.password,
-            []
+            userData.favorites || []
         );
 
         console.log("User:----posle",user)
 
+        setIme(userData.name);
+        setPrezime(userData.surname);
 
         if (user.email !== email) {
 
@@ -60,8 +62,6 @@ function Login() {
             return;
         }
 
-
-
         if (!user.checkPassword(password)) {
 
             setError(
@@ -70,8 +70,6 @@ function Login() {
 
             return;
         }
-
-
 
         localStorage.setItem(
             "loggedUser",

@@ -3,12 +3,15 @@ import {staze } from '../data/staze';
 import StazaCard from '../components/StazaCard';
 import FilterDugme from '../components/FilterDugme';
 import '../styles/Biciklizam.css';
+import Paginacija from '../components/Paginacija';
 
 function Biciklizam() {
 
-    const cyclingTrails = staze.filter(
-        trail => trail.typeK === "biciklizam"
-    );
+    const [currentPage, setCurrentPage] =
+        useState(1);
+
+    const trailsPerPage = 9;
+
     
     const [filteredTrails, setFilteredTrails] = useState(
             staze.filter(trail => trail.typeK === "biciklizam")
@@ -46,7 +49,30 @@ function Biciklizam() {
 
 
             setFilteredTrails(rezultat);
-        };        
+        };      
+        
+    const totalPages = Math.ceil(
+        filteredTrails.length / trailsPerPage
+    );
+    const startIndex = (currentPage - 1) * trailsPerPage;
+
+
+    const currentTrails =
+        filteredTrails.slice(
+            startIndex,
+            startIndex + trailsPerPage
+        );
+
+     const handlePageChange = (page: number) => {
+
+        setCurrentPage(page);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
   return (
     <div className="cycling-trails">
 
@@ -57,7 +83,7 @@ function Biciklizam() {
 
         <div className="trails-grid">
 
-            {filteredTrails.map(trail => (
+            {currentTrails.map(trail => (
                 <StazaCard
                     key={trail.id}
                     staza={trail}
@@ -65,7 +91,11 @@ function Biciklizam() {
             ))}
 
         </div>
-
+            <Paginacija
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
     </div>
   )
 }

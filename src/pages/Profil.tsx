@@ -26,7 +26,7 @@ function Profil() {
         userData.password,
         userData.favorites
       );
- 
+      console.log(loadedUser);
       setUser(loadedUser);
     }
   }, []);

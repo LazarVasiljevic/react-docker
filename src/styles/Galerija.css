@@ -51,7 +51,7 @@
 
     backdrop-filter: blur(8px);
 
-    z-index: 9999;
+    z-index: 10000000;
 }
 
 .view-image {

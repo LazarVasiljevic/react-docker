@@ -21,3 +21,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+@media (max-width: 1000px) {
+
+    .trails-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}

@@ -11,7 +11,6 @@
 .trails-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -21,4 +20,20 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+@media (max-width: 1000px) {
+
+    .trails-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .trails-grid {
+        grid-template-columns: 1fr;
+    }
+
 }
