@@ -66,50 +66,84 @@ export function FavoritesProvider({children}: FavoritesProviderProps) {
 
     }, []);
 
-
-
-
     const saveUser = (updatedUser: User) => {
 
         localStorage.setItem(
             "loggedUser",
             JSON.stringify(updatedUser)
         );
-
+        
+        localStorage.setItem(
+            "user",
+            JSON.stringify(updatedUser)
+        );
 
         setUser(updatedUser);
 
         setFavoriteIds([
             ...updatedUser.favorites
         ]);
+
     };
 
 
     const addFavorite = (trailId: number) => {
 
-        if (!user) {
+        const storedUser =
+            localStorage.getItem("loggedUser");
+
+        if (!storedUser) {
             return;
         }
 
 
-        user.addFavorite(trailId);
+        const userData =
+            JSON.parse(storedUser);
 
 
-        saveUser(user);
+        const loggedUser = new User(
+            userData.name,
+            userData.surname,
+            userData.email,
+            userData.password,
+            userData.favorites || []
+        );
+
+
+        loggedUser.addFavorite(trailId);
+
+
+        saveUser(loggedUser);
     };
 
 
     const removeFavorite = (trailId: number) => {
 
-        if (!user) {
+        const storedUser =
+            localStorage.getItem("loggedUser");
+
+        if (!storedUser) {
             return;
         }
 
 
-        user.removeFavorite(trailId);
+        const userData =
+            JSON.parse(storedUser);
 
 
-        saveUser(user);
+        const loggedUser = new User(
+            userData.name,
+            userData.surname,
+            userData.email,
+            userData.password,
+            userData.favorites || []
+        );
+
+
+        loggedUser.removeFavorite(trailId);
+
+
+        saveUser(loggedUser);
     };
 
 

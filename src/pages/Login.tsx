@@ -11,8 +11,6 @@ function Login() {
 
     const navigate = useNavigate();
 
-    const [ime, setIme] = useState("");
-    const [prezime, setPrezime] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -50,8 +48,6 @@ function Login() {
 
         console.log("User:----posle",user)
 
-        setIme(userData.name);
-        setPrezime(userData.surname);
 
         if (user.email !== email) {
 
@@ -87,7 +83,6 @@ function Login() {
       <div className="login-page">
 
               <div className="login-container">
-
 
                   <div className="login-image">
 

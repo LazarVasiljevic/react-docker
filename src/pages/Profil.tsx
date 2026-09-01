@@ -7,33 +7,47 @@ import { useState, useEffect } from 'react';
 import { MdEmail } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import {staze } from '../data/staze';
+import { useFavorites } from '../context/FavoritesContext';
 import '../styles/StazaCard.css'
 
 function Profil() {
 
-  const [user, setUser] = useState<User | null>(null);
- 
-  useEffect(() => {
-    const storedUser = localStorage.getItem("loggedUser");
-    console.log("Profil----",storedUser)
-    if (storedUser) {
-      const userData = JSON.parse(storedUser);
- 
-      const loadedUser = new User(
+  const {
+        favoriteIds
+    } = useFavorites();
+
+
+    const storedUser =
+        localStorage.getItem("loggedUser");
+
+
+    if (!storedUser) {
+
+        return (
+            <div>
+                <h1>Niste prijavljeni</h1>
+            </div>
+        );
+    }
+
+
+    const userData =
+        JSON.parse(storedUser);
+
+
+    const user = new User(
         userData.name,
         userData.surname,
         userData.email,
         userData.password,
-        userData.favorites
-      );
-      console.log(loadedUser);
-      setUser(loadedUser);
-    }
-  }, []);
- 
-  if (!user) {
-    return null;
-  }
+        userData.favorites || []
+    );
+
+
+    const favoriteTrails =
+        staze.filter(
+            trail => favoriteIds.includes(trail.id)
+        );
 
 
 
@@ -61,7 +75,13 @@ function Profil() {
               Omiljene staze
             </span>
           </div>
- 
+          {favoriteTrails.length === 0 ? (
+
+                <p>
+                    Još uvek nemate omiljene staze.
+                </p>
+
+            ) : (
           <div className="profile-omiljene-card">
             {user.favorites.map((favoriteId, index) => {
               const trail = staze.find(s => s.id === favoriteId);
@@ -72,7 +92,9 @@ function Profil() {
               ) : null;
             })}
           </div>
+           )} 
         </div>
+        
       </div>
     </div>
   )

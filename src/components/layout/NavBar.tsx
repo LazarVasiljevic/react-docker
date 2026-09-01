@@ -2,13 +2,24 @@ import React from 'react'
 import { CgProfile } from "react-icons/cg";
 import "../../styles/NavBar.css";
 import { useState, useRef, useEffect } from 'react';
-import { NavLink  } from 'react-router-dom';
+import { NavLink, useNavigate  } from 'react-router-dom';
 
 function NavBar() {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
   
+  const navigate = useNavigate(); 
+
+  useEffect(() => {
+
+    const loggedUser = localStorage.getItem("loggedUser");
+
+    setIsLoggedIn(loggedUser !== null);
+
+  }, []);
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -26,6 +37,14 @@ function NavBar() {
     };
   }, []);
 
+  const handleLogout = () => {
+
+    localStorage.removeItem("loggedUser");
+    setIsLoggedIn(false);
+    setIsOpen(false);
+    navigate("/");
+  };
+
   return (
     <div className='navbar'>
       <div className='logo'>HIGHKING</div>
@@ -39,9 +58,30 @@ function NavBar() {
             <NavLink to="/profil" className="dropdown-item" onClick={() => setIsOpen(false)}>
               Profil
             </NavLink>
-            <NavLink to="/login" className="dropdown-item" onClick={() => setIsOpen(false)}>
-              Prijava
-            </NavLink>
+            {!isLoggedIn && (
+
+              <NavLink
+                to="/login"
+                className="dropdown-item"
+                onClick={() => setIsOpen(false)}
+              >
+                Prijava
+              </NavLink>
+
+            )}
+
+
+            
+            {isLoggedIn && (
+
+              <button
+                className="dropdown-item logout-button"
+                onClick={handleLogout}
+              >
+                Odjavi se
+              </button>
+
+            )}
           </div>
           )}
           
