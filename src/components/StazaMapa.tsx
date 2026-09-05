@@ -27,12 +27,9 @@ interface StazaMapaProps {
 
 function StazaMapa({latitude, longitude, naziv, lokacija}: StazaMapaProps) {
 
-    
   return (
     <div className="trail-map">
-            <h2>
-                Lokacija staze
-            </h2>
+            <h2> Lokacija staze </h2>
 
             <MapContainer
                 center={[latitude, longitude]}
@@ -46,7 +43,6 @@ function StazaMapa({latitude, longitude, naziv, lokacija}: StazaMapaProps) {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
-
                 <Marker
                     position={[
                         latitude,
@@ -56,21 +52,12 @@ function StazaMapa({latitude, longitude, naziv, lokacija}: StazaMapaProps) {
                 >
 
                     <Popup>
-
-                        <strong>
-                            {naziv}
-                        </strong>
-
+                        <strong>{naziv}</strong>
                         <br />
-
                         {lokacija}
-
                     </Popup>
-
-                </Marker>
-
+            </Marker>
             </MapContainer>
-
         </div>
   )
 }
