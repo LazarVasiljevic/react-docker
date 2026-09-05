@@ -158,3 +158,29 @@
     display: flex;
     gap:10px;
 }
+
+
+.trail-map {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.trail-map h2 {
+    margin-bottom: 20px;
+}
+
+.trail-map iframe {
+    width: 100%;
+    min-height: 400px;
+
+    border: none;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+
+    .trail-map iframe {
+        min-height: 300px;
+    }
+
+}

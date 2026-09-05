@@ -11,6 +11,8 @@ export const staze: Trail[] = [
         "3h",
         8,
         420,
+        44.1185,
+        21.7092,
         'Kružna staza od turističke atrakcije - hidrokompleksa Lisine do vidikovca kanjona reke Resave, po šumskom putu i utabanoj planinarskoj stazi. Staza kreće od mosta nekih 4 km nakon sela Strmosten. Most se nalazi na raskrsnici glavnog puta i skretanja za izvor Lisine.',
         "/images/beljanica vodopadi.jpg",
         "kružna"
@@ -24,6 +26,8 @@ export const staze: Trail[] = [
         "6h 30min",
         16,
         825,
+        43.36943,
+        22.609,
         'Midžor je najviši vrh Stare planine u Srbiji. Nalazi se na granici Srbije i Bugarske sa nadmorskom visinom od 2.169 metara. Ova planinarska tura polazi od planinarskog doma “Babin Zub” i ide se šumskim putem pored izvora sve do vrha ski staze Konjarnik gde se nalazi i ugostiteljski objekat “Plaža”.',
         "/images/midzor.jpg",
         "kružna"
@@ -37,6 +41,8 @@ export const staze: Trail[] = [
         "3h 30min",
         8.6,
         440,
+        44.1185,
+        21.7092,
         'Staza kreće od planinarskog doma Suvaja i prolazi pored čuvarske kućice šumskog gazdinstva. U početnom delu staza je strma, vodi kroz hrastovu sumu i nakon 20-ak minuta hoda izlazi na ravni deo koji se zove Jasikovac.',
         "/images/resavska.jpg",
         "kružna"
@@ -50,6 +56,8 @@ export const staze: Trail[] = [
         "4h",
         10,
         765,
+        43.50,
+        21.44,
         'Staza počinje ispred Planinarskog doma (Planinarski dom „Žarko Žarić“) na Jastrepcu i markirana je kompletno u oba smera. Staza vodi uzbrdo do šumskog puta koji nas nakon nekih 400 metara dovodi do ograde Uzgajališta divljih svinja i jelenske divljači.',
         "/images/jastebac.jpg",
         "kružna"
@@ -63,6 +71,8 @@ export const staze: Trail[] = [
         "4h 30min",
         16,
         660,
+        44.10694,
+        19.99167,
         'Prijatna staza kroz šumu na Beljanici.',
         "/images/crnivrh.jpg",
         "kružna"
@@ -76,6 +86,8 @@ export const staze: Trail[] = [
         "4h",
         10,
         95,
+        43.92,
+        19.47,
         'Početak ove staze je naselje Kaluđerske bare na Tari. Staza vodi preko jezera Jarevac, do proplanka Borovo brdo. Ovo je jedan od tarskih klasika, puna raznovrsnog terena i dobro obeležena i markacijama i panoima sa informacijama o flori i fauni ovog područja.',
         "/images/bare.jpg",
         "kružna"
@@ -89,6 +101,8 @@ export const staze: Trail[] = [
         "2h",
         5,
         304,
+        43.2682,
+        20.8202,
         'Staza kreće od izletišta Kadijevac koje se nalazi na magistralnom putu Kopaonik-Jošanička Banja. Sam početak uspona prolazi kroz kratki šumoviti deo, nakon čega sledi pretežno niska vegetacija do samog vrha. Dobra ideja je poneti šešir, ili kačket za ovaj uspon.',
         "/images/kuk.jpg",
         "kružna"
@@ -102,6 +116,8 @@ export const staze: Trail[] = [
         "1h 30min",
         3,
         200,
+        44.10694,
+        19.99167,
         'Ruta kreće iz centra Divčibara i kreće se direktno ka vidikovcu Crni vrh.Posle 45min stižemo na Crni vrh i tamo nas dočekuje izvidnica sa ljuljaškom i prelep vidikovac. Posle toga se spuštamo drugim putem i dolazimo do čuvenog Drveta ljubavi nakon oko 400m.',
         "/images/div.jpg",
         "od tačke do tačke"
@@ -115,6 +131,8 @@ export const staze: Trail[] = [
         "40min",
         3,
         100,
+        45.15631,
+        19.70965,
         'Kratka i laka fruškogorska staza, idealna za predah od gradske vreve. Popovica je veoma popularno mesto za izletnike na Fruškoj gori, odatle svake godine na hiljade planinara startuje svoju stazu na Fruškogorskom maratonu, tu se nalaze i nekoliko planinarskih domova. Do Popovice, tj. početka ove staze vozi gradski autobus 74. Zelena staza zdravlja kreće putem nizbrdo koji se nalazi levo od table koju možete videti na fotografiji ispod. Ova staza je veoma dobro obeležena zeleno/belom markacijom.',
         "/images/fg.jpg",
         "kružna"
@@ -128,6 +146,8 @@ export const staze: Trail[] = [
         "2h",
         11,
         420,
+        45.15631,
+        19.70965,
         'Start je na izletištu na Zmajevcu, postoji parking i može se doći autom.Kod T1 skreće se levo u šumu i spušta se do asfaltnog puta (T2). Crveno - bela trougaona markacija će vas pratiti sve do Vrdnicke kule.',
         "/images/zmaj.jpg",
         "od tačke do tačke"
@@ -141,6 +161,8 @@ export const staze: Trail[] = [
         "4h",
         17,
         1100,
+        42.5294,
+        22.2306,
         'Staza polazi od planinarskog doma na Besnoj Kobili. U planinarskom domu „Dragan Spasić“ moguće je naručiti hranu i piće, ima smeštajnih kapaciteta i nalazi se na nadmorskoj visini od 1480 m. Staza od pl. doma vodi uz obližnju ski stazu par stotina metara, nakon čega se izlazi na veliki makadamski put.',
         "/images/besna.jpg",
         "kružna"
@@ -154,6 +176,8 @@ export const staze: Trail[] = [
         "6h",
         55,
         130,
+        44.7872,
+        20.4573,
         'Prijatna staza kroz šumu na Beljanici.',
         "/images/beograd.jpg",
         "kružna"
@@ -167,6 +191,8 @@ export const staze: Trail[] = [
         "1h",
         12,
         110,
+        44.275,
+        19.898,
         'Ovo je najpopularnija šetačka ruta u gradu Valjevu, ali je vrlo prikladna i za vožnju bicikla. Lagana staza vodi od kružnog toka prema prirodnom rezervatu reke Gradac. Staza ima veoma mali uspon, ravnomerno raspodeljen celom dužinom staze. Put kreće od kružnog toka u Valjevu gde u blizini možete parkirati auto, zatim nastavljate do prve brane i dalje celom dužinom reke.',
         "/images/valjevo.jpg",
         "od tačke do tačke"
@@ -180,6 +206,8 @@ export const staze: Trail[] = [
         "3h 30min",
         34,
         805,
+        43.5364,
+        20.8456,
         'Ova kružna staza prolazi krajolicima planine Goč i tokom 36km prolazi kroz Mitrovo polje, zatim kroz sela Stanišinaci i Goč, obilazi poznato gočko jezero Selište i na kraju se sa zapadne strane Ljuktena spušta ka selu Rogavčina i nazad ka početnoj tački. Početak ove ture je u centru Mitrovog polja, poznatog župskog izletišta, nedaleko od lokalne prodavnice u pravcu Vrnjačke Banje.',
         "/images/goc.jpg",
         "kružna"
@@ -193,6 +221,8 @@ export const staze: Trail[] = [
         "3h",
         24.2,
         630,
+        43.2682,
+        20.8202,
         'Ravni Kopaonik je centralna površ Kopaonika oko koje se uzdižu najviši vrhovi poput Pančićevog vrha, Velike Gobelje i masiva Karamana. Na ovoj zaravni se nalazi puno zanimljivih lokacija i ova staza obilazi dosta njih. Na prostoru Ravnog Kopaonika je smešten i turistički centar, odakle i kreće ova staza. Od Konaka je potrebno asfaltnim putem krenuti u pravcu Brzeća do Jarma.',
         "/images/kop2.jpg",
         "od tačke do tačke"
@@ -206,6 +236,8 @@ export const staze: Trail[] = [
         "2h",
         19.5,
         370,
+        43.2682,
+        20.8202,
         'Ova biciklistička staza obilazi nekoliko poznatih kopaoničkih lokacija u blizini Jarma i Gobelje. Tokom 20-ak kilometara imaćete prilike da obiđete Orlove (Bele) stene, Likinu česmu, Rvatske bačije i Meka presedla. Staza je idealna za električni MTB, ali potpuno izvodljiva i sa običnim MTB biciklom. Početak rute je u centru Kopanika, pored kompleksa Konaci, i nastavlja se asfaltnim putem ka Brzeću.',
         "/images/konaci.jpg",
         "kružna"
@@ -219,6 +251,8 @@ export const staze: Trail[] = [
         "15min",
         1.8,
         24,
+        43.2682,
+        20.8202,
         'Staza kreće od lakat krivine gde se nalazi rampa na makadamskom putu. Do ove lokacije možete stići magistralnim putem Kopaonik-Brus, i sama krivina se nalazi na oko 10km od centra Kopaonika. Odatle kreće dobro markirana staza ka gejziru i ka svetilištu Metođe. U samom startu od magistralnog puta se odvaja magadamski put i pešačka staza.',
         "/images/gejzir.jpg",
         "kružna"
@@ -232,6 +266,8 @@ export const staze: Trail[] = [
         "3h",
         20,
         780,
+        42.5294,
+        22.2306,
         'Početna tačka ove biciklističke ture je u mestu Kriva Feja koje se nalazi na nadmorskoj visini od 1265 metara. Prvi deo staze ide asfaltnim putem koji vodi prema planinarskom domu. Na ovoj deonici postoji samo jedna raskrsnica sa jasnim putokazom ka vrhu Besna Kobila 1923.',
         "/images/bk.jpg",
         "kružna"
@@ -245,6 +281,8 @@ export const staze: Trail[] = [
         "2h",
         14,
         420,
+        43.2682,
+        20.8202,
         'Staza koja obilazi zanimljive planinske predele u okolini Vikend naselja. Tokom 14 kilometra staza pravi krug od Vikend naselja prema selu Lisine i lokalitetu Barska reka, koji obiluje biljnim i životinjskim svetom. Staza idealna za električni MTB zbog nekoliko jačih uspona, ali je izvodljiva i sa običnim planinskim biciklom. Početak rute je na centralnom putu u Vikend Naselju i u startu krećemo na dole u pravcu Raške.',
         "/images/bb.jpg",
         "od tačke do tačke"
@@ -258,6 +296,8 @@ export const staze: Trail[] = [
         "1h 45min",
         27,
         20,
+        44.7872,
+        20.4573,
         'Biciklistička tura od Savskog keja u Bloku 70 do salaša Stamen u blizini Jakova. Popularna i lagana biciklistička tura koja vodi od Savskog nasipa pa do salaša Stremen u blizini Jakova. Staza kreće od početka Savskog keja, kod okretnice autobusa u Bloku 70 (Novi Bograd) i prvih 2km ide označenom biciklističkom stazom duž Savskog keja. Veći deo staze vodi asfaltnim putem, ali ima i većih zemljanih deonica pa ova ruta i nije najpogodnica za bicikle “drumaše”, već više za trek/siti/mtb.',
         "/images/bg.jpg",
         "kružna"
@@ -272,6 +312,8 @@ export const staze: Trail[] = [
         "2h",
         7.2,
         300,
+        43.50,
+        21.44,
         'Ova biciklistička staza polazi iz Ribarske Banje. Sama staza prolazi kroz centar banje i ide pored wellness centra uskom asfaltnom stazom koja je u početku malo strmija. Tri stotine metara dalje prelazimo sa asfalta na široki zemljani put.',
         "/images/jas.jpg",
         "kružna"

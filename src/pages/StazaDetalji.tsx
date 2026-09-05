@@ -10,11 +10,12 @@ import { RiTreasureMapLine } from "react-icons/ri";
 import { MdHeight } from "react-icons/md";
 import { GiHiking } from "react-icons/gi";
 import { GiTrail } from "react-icons/gi";
-
+import StazaMapa from "../components/StazaMapa";
 
 
 function StazaDetalji() {
     const { id } = useParams();
+    const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;  
 
     console.log("ID iz URL-a:", id);
     console.log("Sve staze:", staze);
@@ -121,10 +122,15 @@ function StazaDetalji() {
                 
         </div>
                 
-
+        <StazaMapa
+            latitude={trail.latitude}
+            longitude={trail.longitude}
+            naziv={trail.name}
+            lokacija={trail.location}
+        />
             
 
-        </div>
+    </div>
   )
 }
 

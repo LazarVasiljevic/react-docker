@@ -15,6 +15,8 @@ export class Trail {
     public duration: string;
     public distance: number;
     public elevation: number;
+    public latitude: number;
+    public longitude: number;
     public description: string;
     public image: string;
     public tipStaze: TrailType;
@@ -28,6 +30,8 @@ export class Trail {
         duration: string,
         distance: number,
         elevation: number,
+        latitude: number,
+        longitude: number,
         description: string,
         image: string,
         tipStaze: TrailType
@@ -40,6 +44,8 @@ export class Trail {
         this.duration = duration;
         this.distance = distance;
         this.elevation = elevation;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.description = description;
         this.image = image;
         this.tipStaze = tipStaze;
