@@ -9,9 +9,11 @@ interface FilterDugmeProps {
         tezina: string,
         tip: string
     ) => void;
+
+    samoMesto?: boolean;
 }
 
-function FilterDugme({ onFilterChange }: FilterDugmeProps) {
+function FilterDugme({ onFilterChange, samoMesto = false }: FilterDugmeProps) {
 
     const [open, setOpen] = useState(false);
 
@@ -25,7 +27,14 @@ function FilterDugme({ onFilterChange }: FilterDugmeProps) {
         setOpen(false);
     };
 
-    
+    const obrisiFiltere = () => {
+        setMesto("sve");
+        setTezina("sve");
+        setTip("sve");
+        onFilterChange("sve", "sve", "sve");
+        setOpen(false);
+    };
+
     return (
         <div className="filter">
 
@@ -34,7 +43,8 @@ function FilterDugme({ onFilterChange }: FilterDugmeProps) {
             </button>
 
             {open && (
-                
+               <> 
+               <div className="filter-overlay" onClick={() => setOpen(false)}/>
                 <div className="filter-panel">
 
                     <div className="filter-option">
@@ -59,8 +69,8 @@ function FilterDugme({ onFilterChange }: FilterDugmeProps) {
                                 Tara
                             </option>
 
-                            <option value="Jastebac">
-                                Jastebac
+                            <option value="Jastrebac">
+                                Jastrebac
                             </option>
 
                             <option value="Stara planina">
@@ -98,70 +108,81 @@ function FilterDugme({ onFilterChange }: FilterDugmeProps) {
                         </select>
                     </div>
 
-                    <div className="filter-option">
-                        <label htmlFor="tip">
-                            Tip staze
-                        </label>
+                    {!samoMesto && (
+                        <>
+                            <div className="filter-option">
+                                <label htmlFor="tip">
+                                    Tip staze
+                                </label>
 
-                        <select
-                            id="tip"
-                            value={tip}
-                            onChange={(e) => setTip(e.target.value)}
+                                <select
+                                    id="tip"
+                                    value={tip}
+                                    onChange={(e) =>
+                                        setTip(e.target.value)
+                                    }
+                                >
+                                    <option value="sve">
+                                        Svi tipovi
+                                    </option>
+
+                                    <option value="kruzna">
+                                        Kružna
+                                    </option>
+
+                                    <option value="od tacke do tacke">
+                                        Od tačke do tačke
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div className="filter-option">
+                                <label htmlFor="tezina">
+                                    Težina
+                                </label>
+
+                                <select
+                                    id="tezina"
+                                    value={tezina}
+                                    onChange={(e) =>
+                                        setTezina(e.target.value)
+                                    }
+                                >
+                                    <option value="sve">
+                                        Sve težine
+                                    </option>
+
+                                    <option value="laka">
+                                        Laka
+                                    </option>
+
+                                    <option value="srednje">
+                                        Srednja
+                                    </option>
+
+                                    <option value="teška">
+                                        Teška
+                                    </option>
+                                </select>
+                            </div>
+                        </>
+                    )}
+                    <div className="filter-actions">
+                        <button
+                            className="apply-filter-button"
+                            onClick={primeniFiltere}
                         >
-                            <option value="sve">
-                                Svi tipovi
-                            </option>
-
-                            <option value="kruzna">
-                                Kružna
-                            </option>
-
-                            <option value="od tacke do tacke">
-                                Od tačke do tačke
-                            </option>
-                        </select>
+                            Primeni
+                        </button>
+                        <button
+                                className="clear-filter-button"
+                                onClick={obrisiFiltere}
+                            >
+                            Obriši filtere
+                        </button>
                     </div>
-
-                    <div className="filter-option">
-                        <label htmlFor="tezina">
-                            Težina
-                        </label>
-
-                        <select
-                            id="tezina"
-                            value={tezina}
-                            onChange={(e) => setTezina(e.target.value)}
-                        >
-                            <option value="sve">
-                                Sve težine
-                            </option>
-
-                            <option value="laka">
-                                Laka
-                            </option>
-
-                            <option value="srednje">
-                                Srednja
-                            </option>
-
-                            <option value="teška">
-                                Teška
-                            </option>
-                        </select>
-                    </div>
-
-
-                    
-
-
-                    <button
-                        className="apply-filter-button"
-                        onClick={primeniFiltere}
-                    >
-                        Primeni
-                    </button>
-
                 </div>
+                </>
             )}
 
         </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import VremeCard from "../components/VremeCard";
 import type { LokacijaVreme } from "../models/Vreme";
+import FilterDugme from "../components/FilterDugme";
 import '../styles/Vreme.css';
 
 const lokacije: LokacijaVreme[] = [
@@ -70,7 +71,7 @@ function Vreme() {
   const [vremeLokacije, setVremeLokacije] = useState<LokacijaVreme[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const [izabranoMesto, setIzabranoMesto] = useState("sve");  
 
   useEffect(() => {
 
@@ -179,17 +180,21 @@ function Vreme() {
 
 }, []);
 
+  const handleFilterChange = (mesto: string) => {
+        setIzabranoMesto(mesto);
+  };
+
+  const filtriraneLokacije = izabranoMesto === "sve" ? vremeLokacije : 
+        vremeLokacije.filter(location => location.name === izabranoMesto);
+
   return (
     <div className="weather-page">
-
       <div className="weather-header">
-
         <h1>Vremenska prognoza</h1>
-
-        <button className="filter-button">
-          ☷
-        </button>
-
+        <FilterDugme
+            samoMesto={true}
+            onFilterChange={handleFilterChange}
+        />
       </div>
 
       {loading && (
@@ -206,7 +211,7 @@ function Vreme() {
 
       {!loading && !error && (
         <div className="weather-list">
-          {vremeLokacije.map((location) => {
+          {filtriraneLokacije.map((location) => {
 
             if (!location.vreme) {
               return null;
