@@ -6,3 +6,21 @@
     margin-left: 0;
     padding: 40px;
 }
+
+@media (max-width: 768px) {
+
+    .main-content {
+        margin-left: 0;
+
+        margin-top: var(--navbar-height);
+
+        padding: 20px 15px;
+
+        padding-bottom: 90px;
+
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+}

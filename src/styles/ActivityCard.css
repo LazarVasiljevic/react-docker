@@ -7,14 +7,20 @@
     border-radius: 10px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
-    width:280px;
+    width:100%;
+    max-width: 480px;
+    overflow: hidden;
 }
 .activity-card:hover{
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
 .activity-card-image{
-    width:100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    display: block;;
 }
 .activity-card-content{
     display: flex;
@@ -22,10 +28,31 @@
     font-family: var(--text);
     font-size: 20px;
     background-color: var(--text-color);
-    height:100%;
+    min-height: 80px;
     text-align: center;
     justify-content: center;
-    width: 280px;
+    width: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+}
+.activity-card-content h2 {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+
+    .activity-card {
+        max-width: 250px;
+    }
+
+    .activity-card-image {
+        height: 150px;
+    }
+
+    .activity-card-content {
+        min-height: 60px;
+        font-size: 14px;
+    }
+
 }

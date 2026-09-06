@@ -4,3 +4,15 @@
     gap:100px;
     margin-left: var(--sidebar-width);
 } 
+
+@media (max-width: 768px) {
+
+    .home-container {
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 25px;
+        width: 100%;
+        margin-left: 30px;
+    }
+
+}

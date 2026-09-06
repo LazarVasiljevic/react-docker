@@ -1,5 +1,7 @@
 .walking-trails {
     margin-top: -20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .walking-trails h1{
@@ -15,25 +17,50 @@
 }
 
 .trails-header{
-    padding-left:350px;
     width:100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
 
-    .trails-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .walking-trails {
+        margin-top: 0;
+        padding: 20px 15px 90px;
+        width: 100vw;
+        box-sizing: border-box;
     }
 
-}
+    .trails-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 25px;
+    }
 
-@media (max-width: 600px) {
+    .walking-trails h1 {
+        font-size: 26px;
+
+        line-height: 1.1;
+
+        max-width: 220px;
+
+        padding: 0;
+
+        text-align: center;
+    }
 
     .trails-grid {
         grid-template-columns: 1fr;
-    }
 
+        gap: 20px;
+
+        width: 100%;
+    }
 }
+

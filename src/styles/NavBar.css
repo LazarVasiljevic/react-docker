@@ -62,3 +62,32 @@
     cursor: pointer;
     height: 100%;
 }
+
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .profile-button {
+        font-size: 2rem;
+
+        padding: 8px;
+    }
+
+    .profile-dropdown {
+        width: 140px;
+    }
+
+    .dropdown-item {
+        font-size: 16px;
+
+        padding: 10px 12px;
+    }
+
+}
