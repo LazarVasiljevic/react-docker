@@ -29,7 +29,6 @@ Aplikacija sadrži sledeće funkcionalnosti:
 - dodavanje staza u omiljene
 - uklanjanje staza iz omiljenih
 - čuvanje korisničkih podataka i omiljenih staza u Local Storage-u
-- responzivan dizajn prilagođen desktop, tablet i mobilnim uređajima
 
 ---
 
@@ -44,7 +43,7 @@ Za razvoj projekta korišćene su:
 - React Leaflet
 - Leaflet
 - OpenStreetMap
-- Open-Meteo API
+- OpenWeather API
 - HTML
 - CSS
 - Local Storage
@@ -54,17 +53,20 @@ Za razvoj projekta korišćene su:
 
 ## Eksterni servisi
 
-### Open-Meteo
+### OpenWeather API
 
-Aplikacija koristi Open-Meteo API za prikaz sedmodnevne vremenske prognoze za lokacije na kojima se nalaze staze.
+Aplikacija koristi OpenWeather API za prikaz petodnevne vremenske prognoze za lokacije na kojima se nalaze staze.
 
-Prikazuju se informacije kao što su:
+Za svaku lokaciju prikazuju se:
 
+- dan prognoze
 - vremenski uslovi
 - maksimalna temperatura
 - minimalna temperatura
 
-Za korišćenje Open-Meteo API-ja u ovom projektu nije potreban API ključ.
+Za korišćenje vremenske prognoze potreban je **OpenWeather API key**.
+
+API key se ne nalazi u Git repozitorijumu, već se podešava lokalno pomoću `.env` fajla.
 
 ### OpenStreetMap i Leaflet
 
@@ -87,13 +89,13 @@ Za pokretanje projekta potrebno je da na računaru budu instalirani:
 Otvoriti terminal i izvršiti:
 
 ```bash
-git clone https://github.com/elab-development/klijentske-veb-tehnologije-2024-2022-0211-veb-aplikacija-za-planinare.git
+git clone https://github.com/elab-development/klijentske-veb-tehnologije-2024-2022-0211-veb-aplikacija-za-planinare.git react2026
 ```
 
 Zatim ući u direktorijum projekta:
 
 ```bash
-cd //naziv-direktrotijum//
+cd react2026
 ```
 
 ### 2. Instaliranje dependencies
@@ -104,15 +106,88 @@ Nakon kloniranja projekta potrebno je instalirati sve potrebne pakete:
 npm install
 ```
 
-### 3. Pokretanje projekta
+## 3. Kreiranje OpenWeather API ključa
 
-Pokrenuti development server:
+Za korišćenje vremenske prognoze potrebno je napraviti nalog na OpenWeather platformi i kreirati API key.
+
+OpenWeather:
+
+https://openweathermap.org/
+
+Nakon kreiranja API ključa potrebno ga je dodati u projekat.
+
+---
+
+## 4. Kreiranje `.env` fajla
+
+U root direktorijumu projekta, na istom nivou gde se nalazi `package.json`, napraviti fajl:
+
+```text
+.env
+```
+
+Struktura projekta treba da izgleda približno ovako:
+
+```text
+HIGHKING/
+│
+├── public/
+├── src/
+├── .env
+├── .env.example
+├── .gitignore
+├── package.json
+├── vite.config.ts
+└── index.html
+```
+
+U `.env` fajl dodati:
+
+```env
+VITE_WEATHER_API_KEY=YOUR_API_KEY
+```
+
+`YOUR_API_KEY` zameniti svojim OpenWeather API ključem.
+
+Na primer:
+
+```env
+VITE_WEATHER_API_KEY=ovde_uneti_api_key
+```
+
+API ključ se u aplikaciji učitava pomoću:
+
+```ts
+import.meta.env.VITE_WEATHER_API_KEY;
+```
+
+> Nakon kreiranja ili izmene `.env` fajla potrebno je ponovo pokrenuti Vite development server.
+
+---
+
+## 5. `.env.example`
+
+U repozitorijumu se nalazi `.env.example` koji pokazuje koje environment promenljive su potrebne za pokretanje projekta.
+
+Sadržaj fajla:
+
+```env
+VITE_WEATHER_API_KEY=YOUR_API_KEY_HERE
+```
+
+`.env.example` ne sadrži pravi API key.
+
+---
+
+## 6. Pokretanje projekta
+
+Nakon instaliranja dependencies i podešavanja API ključa, projekat se pokreće komandom:
 
 ```bash
 npm run dev
 ```
 
-Nakon pokretanja terminal će prikazati lokalnu adresu aplikacije, na primer:
+Vite će u terminalu prikazati lokalnu adresu aplikacije, na primer:
 
 ```text
 http://localhost:5173/
@@ -198,6 +273,24 @@ Glavne rute aplikacije su:
 | `/profil`     | Korisnički profil     |
 | `/login`      | Prijava               |
 | `/signin`     | Registracija          |
+
+---
+
+## Vremenska prognoza
+
+Vremenska prognoza se dobija pomoću OpenWeather API-ja.
+
+Aplikacija šalje zahtev za svaku podržanu lokaciju koristeći njenu geografsku širinu i dužinu.
+
+OpenWeather vraća prognozu u intervalima od tri sata. Podaci se zatim grupišu po datumima kako bi aplikacija prikazala petodnevnu prognozu.
+
+Za svaki dan prikazuju se:
+
+- odgovarajuća ikonica vremenskih uslova
+- maksimalna temperatura
+- minimalna temperatura
+
+Korisnik može pomoću filtera izabrati lokaciju za koju želi da vidi prognozu.
 
 ---
 

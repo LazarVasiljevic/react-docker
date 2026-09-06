@@ -66,8 +66,8 @@ const lokacije: LokacijaVreme[] = [
 
 
 function Vreme() {
-  console.log("VREME KOMPONENTA SE RENDERUJE");
 
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
   const [vremeLokacije, setVremeLokacije] = useState<LokacijaVreme[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -77,108 +77,147 @@ function Vreme() {
 
     const fetchVreme = async () => {
 
-      try {
+        try {
 
-        setLoading(true);
-        setError("");
+            setLoading(true);
+            setError("");
 
-        const results = await Promise.all(
-        lokacije.map(async (location) => {
+            if (!API_KEY) {
+                throw new Error(
+                    "VITE_WEATHER_API_KEY nije definisan."
+                );
+            }
 
-          const url = new URL(
-            "https://api.open-meteo.com/v1/forecast"
-          );
+            const results = await Promise.all(
 
-          url.searchParams.append(
-            "latitude",
-            location.latitude.toString()
-          );
+                lokacije.map(async (location) => {
 
-          url.searchParams.append(
-            "longitude",
-            location.longitude.toString()
-          );
+                    const url = new URL(
+                        "https://api.openweathermap.org/data/2.5/forecast"
+                    );
 
-          url.searchParams.append(
-            "daily",
-            "weather_code,temperature_2m_max,temperature_2m_min"
-          );
+                    url.searchParams.append(
+                        "lat",
+                        location.latitude.toString()
+                    );
 
-          url.searchParams.append(
-            "timezone",
-            "auto"
-          );
+                    url.searchParams.append(
+                        "lon",
+                        location.longitude.toString()
+                    );
 
-          url.searchParams.append(
-            "forecast_days",
-            "7"
-          );
+                    url.searchParams.append(
+                        "appid",
+                        API_KEY
+                    );
 
-          console.log("Šaljem zahtev:", url.toString());
+                    url.searchParams.append(
+                        "units",
+                        "metric"
+                    );
 
-          const response = await fetch(url.toString());
+                    url.searchParams.append(
+                        "lang",
+                        "sr"
+                    );
 
-          console.log(
-            "Status:",
-            response.status,
-            location.name
-          );
+                    const response = await fetch(
+                        url.toString()
+                    );
 
-          if (!response.ok) {
-            const errorText = await response.text();
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `OpenWeather greška: ${response.status}`
+                        );
+
+                    }
+
+                    const data = await response.json();
+
+                    const groupedDays: {
+                        [date: string]: {
+                            temperatures: number[];
+                            code: number;
+                        };
+                    } = {};
+
+                    data.list.forEach((item: any) => {
+
+                        const date =
+                            item.dt_txt.split(" ")[0];
+
+                        if (!groupedDays[date]) {
+
+                            groupedDays[date] = {
+                                temperatures: [],
+                                code: item.weather[0].id
+                            };
+
+                        }
+
+                        groupedDays[date]
+                            .temperatures
+                            .push(item.main.temp);
+
+                        if (
+                            item.dt_txt.includes(
+                                "12:00:00"
+                            )
+                        ) {
+
+                            groupedDays[date].code =
+                                item.weather[0].id;
+
+                        }
+
+                    });
+
+
+                    const dates = Object.keys(groupedDays).slice(0, 5);
+
+                    return {
+
+                        ...location,
+                        vreme: {
+                            time: dates,
+                            weather_code: dates.map(date =>groupedDays[date].code),
+                            temperature_2m_max:dates.map(
+                              date =>Math.max(...groupedDays[date].temperatures)
+                            ),
+                            temperature_2m_min:dates.map(
+                              date =>Math.min(...groupedDays[date].temperatures)
+                            )
+                        }
+
+                    };
+
+                })
+
+            );
+
+            setVremeLokacije(results);
+
+        } catch (error) {
 
             console.error(
-              "Open-Meteo greška:",
-              errorText
+                "Greška prilikom učitavanja vremena:",
+                error
             );
 
-            throw new Error(
-              `Open-Meteo greška: ${response.status}`
+            setError(
+                "Nije moguće učitati vremensku prognozu."
             );
-          }
 
-          const data = await response.json();
+        } finally {
+            setLoading(false);
+        }
 
-          console.log(
-            `Podaci za ${location.name}:`,
-            data
-          );
+    };
 
-          return {
-            ...location,
-            vreme: {
-              time: data.daily.time,
-              weather_code: data.daily.weather_code,
-              temperature_2m_max:
-                data.daily.temperature_2m_max,
-              temperature_2m_min:
-                data.daily.temperature_2m_min
-            }
-          };
-        })
-      );
+    fetchVreme();
 
-      setVremeLokacije(results);
-
-    } catch (error) {
-
-      console.error(
-        "GREŠKA PRILIKOM UČITAVANJA VREMENA:",
-        error
-      );
-
-      setError(
-        "Nije moguće učitati vremensku prognozu."
-      );
-
-    } finally {
-      setLoading(false);
-    }
-  };
-
-   fetchVreme();
-
-}, []);
+}, [API_KEY]);
 
   const handleFilterChange = (mesto: string) => {
         setIzabranoMesto(mesto);

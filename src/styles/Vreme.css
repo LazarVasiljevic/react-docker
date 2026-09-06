@@ -1,6 +1,5 @@
 .weather-page {
     min-height: 100vh;
-    padding: 30px 45px;
     box-sizing: border-box;
     font-family: var(--text);
     width: 70vw;    
@@ -15,7 +14,7 @@
 
 .weather-header h1 {
     font-size: 32px;
-    margin: 0 auto;
+    margin-left:500px;
 }
 
 .filter-button3 {

@@ -22,32 +22,33 @@ function getDayName(date: string): string {
 }
 
 function getWeatherIcon(code: number): string {
-  if (code === 0) {
-    return sunny;
+
+  if (code >= 200 && code < 300) {
+    return thunderstorm;
   }
 
-  if (code === 1 || code === 2) {
-    return partlyCloudy;
-  }
-
-  if (code === 3) {
-    return cloudy;
-  }
-
-  if (code === 45 || code === 48) {
-    return fog;
-  }
-
-  if ((code >= 51 && code <= 67) || (code >= 80 && code <= 82)){
+  if ((code >= 300 && code < 400) ||(code >= 500 && code < 600)) {
     return rain;
   }
 
-  if (code >= 71 && code <= 77) {
-        return snow;
+  if (code >= 600 && code < 700) {
+    return snow;
   }
 
-  if (code >= 95 && code <= 99) {
-        return thunderstorm;
+  if (code >= 700 && code < 800) {
+    return fog;
+  }
+
+  if (code === 800) {
+    return sunny;
+  }
+
+  if (code === 801 || code === 802) {
+    return partlyCloudy;
+  }
+
+  if (code === 803 || code === 804) {
+    return cloudy;
   }
 
   return cloudy;
@@ -61,30 +62,42 @@ function VremeCard({ naziv, vreme }: VremeCardProps) {
 
       <div className="weather-card">
 
-        {vreme.time.map((date, index) => (
-          <div className="weather-day" key={date}>
+        {vreme.time.map((date, index) => {
 
-            <p className="weather-day-name">
-              {getDayName(date)}
-            </p>
+          const code = vreme.weather_code[index];
 
-            <div className="weather-icon">
-              <img
-                  src={getWeatherIcon(vreme.weather_code[index])}
+          const maxTemperature =vreme.temperature_2m_max[index];
+
+          const minTemperature =vreme.temperature_2m_min[index];
+
+          return (
+            <div className="weather-day" key={date}>
+
+              <p className="weather-day-name">
+                {getDayName(date)}
+              </p>
+
+              <div className="weather-icon">
+
+                <img
+                  src={getWeatherIcon(code)}
                   alt="Vremenska prognoza"
-              />
+                />
+
+              </div>
+
+              <p className="temperature-max">
+                {Math.round(maxTemperature)}°C
+              </p>
+
+              <p className="temperature-min">
+                {Math.round(minTemperature)}°C
+              </p>
+
             </div>
+          );
 
-            <p className="temperature-max">
-              {Math.round(vreme.temperature_2m_max[index])}°C
-            </p>
-
-            <p className="temperature-min">
-              {Math.round(vreme.temperature_2m_min[index])}°C
-            </p>
-
-          </div>
-        ))}
+        })}
 
       </div>
 
