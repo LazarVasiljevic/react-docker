@@ -43,16 +43,49 @@
 @media (max-width: 768px) {
 
     .activity-card {
-        max-width: 250px;
+        width: 100%;
+        max-width: 280px;
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #ffd184;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-sizing: border-box;
     }
 
     .activity-card-image {
-        height: 150px;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        padding: 10px;
+        box-sizing: border-box;
     }
 
     .activity-card-content {
-        min-height: 60px;
-        font-size: 14px;
+        flex: 1;
+        width: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .activity-card-content h2 {
+        margin: 0;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .activity-card:hover {
+        transform: none;
     }
 
 }

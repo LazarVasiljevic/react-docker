@@ -67,27 +67,63 @@
 @media (max-width: 768px) {
 
     .navbar {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 60px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
         padding: 0 15px;
+
+        box-sizing: border-box;
+
+        z-index: 10000;
     }
 
     .logo {
-        font-size: 1.5rem;
+        padding: 0;
+
+        font-size: 24px;
+    }
+
+    .profile-container {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
     }
 
     .profile-button {
-        font-size: 2rem;
+        padding: 0;
 
-        padding: 8px;
+        font-size: 35px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
     }
 
     .profile-dropdown {
+        top: 50px;
+        right: 0;
+
         width: 140px;
+
+        height: auto;
     }
 
     .dropdown-item {
         font-size: 16px;
 
-        padding: 10px 12px;
+        padding: 10px;
     }
 
 }

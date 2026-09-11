@@ -9,17 +9,17 @@
 
 @media (max-width: 768px) {
 
+    .layout {
+        width: 100%;
+        min-height: 100vh;
+    }
+
     .main-content {
         margin-left: 0;
-
         margin-top: var(--navbar-height);
-
-        padding: 20px 15px;
-
-        padding-bottom: 90px;
-
         width: 100%;
-
+        padding: 0;
+        padding-bottom: 70px;
         box-sizing: border-box;
     }
 

@@ -11,7 +11,9 @@ import sp from '../../public/images/stara-planina.jpg';
 import tara from '../../public/images/tara.jpg';
 import val from '../../public/images/valjevo.jpg';
 import GalerijaCard from '../components/GalerijaCard';
-
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
 import '../styles/Galerija.css';
 
 interface GalerijaItem {
@@ -126,7 +128,7 @@ function Galerija() {
             className="view-close"
             onClick={closeLightbox}
           >
-            x
+            <RxCross2 />
           </button>
 
           <button
@@ -136,7 +138,7 @@ function Galerija() {
             previousImage();
           }}
           >
-            ‹
+            <FaArrowLeft />
           </button>
 
             <img
@@ -153,7 +155,7 @@ function Galerija() {
                 nextImage();
                 }}
             >
-              ›
+              <FaArrowRight />
             </button>
 
         </div>

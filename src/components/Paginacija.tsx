@@ -1,4 +1,6 @@
 import React from 'react'
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
 import '../styles/Paginacija.css'
 
 
@@ -19,7 +21,7 @@ function Paginacija({currentPage, totalPages,onPageChange}: PaginationProps) {
                 disabled={currentPage === 1}
                 onClick={() => onPageChange(currentPage - 1)}
             >
-                ←
+                <FaArrowLeftLong />
             </button>
 
 
@@ -47,7 +49,7 @@ function Paginacija({currentPage, totalPages,onPageChange}: PaginationProps) {
                 disabled={currentPage === totalPages}
                 onClick={() => onPageChange(currentPage + 1)}
             >
-                →
+                <FaArrowRightLong />
             </button>
 
         </div>

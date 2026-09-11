@@ -5,9 +5,7 @@ import { CiHeart } from "react-icons/ci";
 import '../styles/StazaDetalji.css';
 import {useFavorites} from '../context/FavoritesContext';
 import { RxLapTimer } from "react-icons/rx";
-import { GiPathDistance } from "react-icons/gi";
 import { RiTreasureMapLine } from "react-icons/ri";
-import { MdHeight } from "react-icons/md";
 import { GiHiking } from "react-icons/gi";
 import { GiTrail } from "react-icons/gi";
 import StazaMapa from "../components/StazaMapa";
@@ -15,7 +13,6 @@ import StazaMapa from "../components/StazaMapa";
 
 function StazaDetalji() {
     const { id } = useParams();
-    const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;  
 
     console.log("ID iz URL-a:", id);
     console.log("Sve staze:", staze);
@@ -24,14 +21,7 @@ function StazaDetalji() {
         trail => trail.id === Number(id)
     );
 
-    
     console.log("Pronađena staza:", trail);
-
-    const {
-        addFavorite,
-        removeFavorite,
-        hasFavorite
-    } = useFavorites();
 
     if (!trail) {
         return (
@@ -41,6 +31,11 @@ function StazaDetalji() {
         );
     }
 
+    const {
+        addFavorite,
+        removeFavorite,
+        hasFavorite
+    } = useFavorites();
     const favorite =
         hasFavorite(trail.id);
 
