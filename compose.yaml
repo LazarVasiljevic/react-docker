@@ -1,0 +1,11 @@
+services:
+  highking-app:
+    build:
+      context: .
+      dockerfile: dockerfile
+      args:
+        VITE_WEATHER_API_KEY: ${VITE_WEATHER_API_KEY}
+    container_name: react2026
+    ports: 
+     - "8080:80"
+    restart: unless-stopped
