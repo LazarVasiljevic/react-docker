@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { LiaHomeSolid } from "react-icons/lia";
 import { FaHiking } from "react-icons/fa";

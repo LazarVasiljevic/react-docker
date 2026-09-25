@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import belj from '../../public/images/beljanica vodopadi.jpg';
 import bg from '../../public/images/beograd.jpg';
 import bk from '../../public/images/besna-kobila.jpg';

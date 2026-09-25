@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect, useState } from "react";
 import VremeCard from "../components/VremeCard";
 import type { LokacijaVreme } from "../models/Vreme";

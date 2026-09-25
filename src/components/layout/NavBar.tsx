@@ -1,4 +1,3 @@
-import React from 'react'
 import { CgProfile } from "react-icons/cg";
 import "../../styles/NavBar.css";
 import { useState, useRef, useEffect } from 'react';

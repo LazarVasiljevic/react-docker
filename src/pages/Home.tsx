@@ -1,4 +1,3 @@
-import React from 'react'
 import ActivityCard from '../components/ActivityCard';
 import '../styles/Home.css';
 function Home() {

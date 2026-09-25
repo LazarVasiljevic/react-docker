@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface GalerijaSlikaProps {
     image: string;
     alt: string;

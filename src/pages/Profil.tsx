@@ -1,9 +1,7 @@
-import React from 'react'
 import {User} from '../models/User'
 import { CgProfile } from "react-icons/cg";
 import '../styles/Profil.css'
 import StazaCard from '../components/StazaCard';
-import { useState, useEffect } from 'react';
 import { MdEmail } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import {staze } from '../data/staze';
@@ -83,7 +81,7 @@ function Profil() {
 
             ) : (
           <div className="profile-omiljene-card">
-            {user.favorites.map((favoriteId, index) => {
+            {user.favorites.map((favoriteId) => {
               const trail = staze.find(s => s.id === favoriteId);
               return trail ? (
                 <StazaCard 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState,  } from 'react';
 import { LuListFilter } from "react-icons/lu";
 import '../styles/FilterDugme.css';

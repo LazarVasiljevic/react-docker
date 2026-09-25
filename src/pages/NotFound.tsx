@@ -1,4 +1,3 @@
-import React from 'react'
 import { GiMountainRoad } from "react-icons/gi";
 import { NavLink } from 'react-router-dom';
 import '../styles/NotFound.css'

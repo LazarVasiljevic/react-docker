@@ -1,4 +1,3 @@
-import React from 'react'
 import type {VremeData}  from '../models/Vreme';
 import '../styles/VremeCard.css';
 import sunny from "../../public/images/s.png";

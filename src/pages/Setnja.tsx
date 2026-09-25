@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import { useState} from 'react'
 import {staze } from '../data/staze';
 import StazaCard from '../components/StazaCard';
 import FilterDugme from '../components/FilterDugme';

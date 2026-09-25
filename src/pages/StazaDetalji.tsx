@@ -1,4 +1,3 @@
-import React from 'react'
 import { useParams } from 'react-router-dom';
 import {staze } from '../data/staze';
 import { CiHeart } from "react-icons/ci";
